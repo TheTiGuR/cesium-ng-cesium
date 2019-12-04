@@ -1,14 +1,16 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AngularCesiumModule } from "angular-cesium";
+import { AngularCesiumModule } from 'angular-cesium';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { NgMapsModule } from 'ng-maps';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AngularCesiumModule.forRoot(), BrowserModule, AppRoutingModule],
+  imports: [AngularCesiumModule.forRoot(), BrowserModule, AppRoutingModule, NgMapsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/",
             "outputPath": "dist/cesium-ng-cesium",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,10 +33,7 @@
                 "output": "./assets/cesium"
               }
             ],
-            "styles": [
-              "src/styles.sass",
-              "./node_modules/cesium/Build/Cesium/Widgets/widgets.css"
-            ],
+            "styles": ["src/styles.sass", "./node_modules/cesium/Build/Cesium/Widgets/widgets.css"],
             "scripts": ["./node_modules/cesium/Build/Cesium/Cesium.js"]
           },
           "configurations": {
@@ -102,11 +100,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
             "exclude": ["**/node_modules/**"]
           }
         },
@@ -120,6 +114,36 @@
             "production": {
               "devServerTarget": "cesium-ng-cesium:serve:production"
             }
+          }
+        }
+      }
+    },
+    "ng-maps": {
+      "projectType": "library",
+      "root": "projects/ng-maps",
+      "sourceRoot": "projects/ng-maps/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-maps/tsconfig.lib.json",
+            "project": "projects/ng-maps/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-maps/src/test.ts",
+            "tsConfig": "projects/ng-maps/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-maps/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["projects/ng-maps/tsconfig.lib.json", "projects/ng-maps/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

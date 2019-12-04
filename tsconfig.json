@@ -7,17 +7,18 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "cesium": ["node_modules/cesium/Build/Cesium/Cesium.js"],
+      "cesium/*": ["node_modules/cesium/Build/Cesium/Cesium.js"],
+      "ng-maps": ["dist/ng-maps"],
+      "ng-maps/*": ["dist/ng-maps/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
